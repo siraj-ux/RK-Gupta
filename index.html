@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- PRIMARY META -->
+    <title>Live Conceptual Learning Session | Structured Options Education</title>
+    <meta
+      name="description"
+      content="Join a live, structured learning session focused on conceptual understanding and decision-thinking. Designed for learners who want clarity, structure, and calm learning without hype."
+    />
+    <meta
+      name="keywords"
+      content="live learning session, conceptual education, structured learning, options basics, decision thinking, beginner friendly workshop, hindi live class"
+    />
+    <meta name="author" content="RK Gupta" />
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Live Conceptual Learning Session" />
+    <meta
+      property="og:description"
+      content="A calm, structured, and educational live session focused on concepts and thinking frameworks. No tips, no promises, only learning."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/og-image.png"
+    />
+    <meta property="og:url" content="https://yourdomain.com/" />
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Live Conceptual Learning Session" />
+    <meta
+      name="twitter:description"
+      content="Structured, calm, and educational live learning experience focused on concepts and clarity."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/og-image.png"
+    />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&family=Tenor+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- META / TRACKING PLACEHOLDER -->
+    <!-- Meta Pixel Base Code (to be added if required) -->
+
+    <!-- GITHUB PAGES SPA FIX -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (!l.search) return;
+
+        var params = new URLSearchParams(l.search);
+        var p = params.get("p");
+        if (!p) return;
+
+        var path = decodeURIComponent(p);
+
+        var h = params.get("h");
+        if (h) params.delete("h");
+
+        params.delete("p");
+
+        var qs = params.toString();
+        var hash = h ? decodeURIComponent(h) : l.hash || "";
+
+        var newUrl = path + (qs ? "?" + qs : "") + hash;
+
+        window.history.replaceState(null, "", newUrl);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
