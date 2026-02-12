@@ -22,7 +22,7 @@ export const MentorSection = () => {
             <div className="flex-shrink-0 text-center">
               <div className="w-56 h-72 rounded-2xl overflow-hidden shadow-md border border-[#007ea7]/30">
                 <img
-                  src="/profile.JPG"
+                  src="/coach.jpeg"
                   alt="RK Gupta"
                   className="w-full h-full object-cover"
                 />

@@ -1,18 +1,14 @@
-import { CheckCircle, ArrowRight, MessageCircle, FileText } from 'lucide-react';
+import { CheckCircle, ArrowDown, ArrowRight, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useFacebookPixel } from "@/hooks/useFacebookPixel";
 
 export const ThankYouPageOtoFb = () => {
   useFacebookPixel({
-    eventName: "Purchase",
-    eventParams: {
-      content_name: "LP2_OTO_Product",
-      content_category: "LP2_OTO",
-      content_ids: ["LP2_IN_OTO_199"],
-      content_type: "product",
-      value: 199,
-      currency: "INR",
-    },
+    eventName: "OTO_Purchase",
+     eventParams: {
+          value: 99,
+          currency: "INR",
+        },
   });
 
   return (
@@ -28,31 +24,57 @@ export const ThankYouPageOtoFb = () => {
 
         {/* Heading */}
         <h1 className="text-3xl md:text-4xl font-science font-bold text-[#04343b] mb-2">
-          Upgrade Confirmed!
+          Payment Successful ✅
         </h1>
 
-        {/* Sub Text */}
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Thank you for joining the <strong>Numerology Webinar (NNW)</strong> and
-          upgrading to the <strong>Destiny Report</strong>.  
-          You’ve just taken the fastest route to real results.
+          Aapka <strong>₹99 Learning Resource Pack</strong> successfully unlock ho chuka hai.
+          <br />
+          Neeche diye gaye ebooks aap turant download kar sakte hain.
         </p>
 
-        {/* Report Delivery Info */}
-        <div className="bg-[#04343b]/5 border border-[#04343b]/10 rounded-xl p-4 mb-6 flex gap-3 items-start text-left">
-          <FileText className="h-5 w-5 text-[#04343b] mt-0.5" />
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Your <strong>Destiny Report</strong> will be delivered shortly to
-            your registered <strong>WhatsApp number</strong>.
-          </p>
+        {/* Resources */}
+        <div className="bg-[#04343b]/5 border border-[#04343b]/10 rounded-xl p-5 mb-6 text-left space-y-4">
+
+          <div className="flex items-center gap-2 font-semibold text-[#04343b]">
+            <BookOpen className="h-5 w-5" />
+            Download Your Learning Resources
+          </div>
+
+          <a
+            href="/Crypto-The-Future-of-Finance.pdf"
+            download
+            className="flex items-center justify-between bg-white border rounded-lg px-4 py-3 hover:bg-gray-50"
+          >
+            <span className="text-sm">📘 Ebook 1 – Crypto-The-Future-of-Finance</span>
+            <ArrowDown className="h-4 w-4" />
+          </a>
+
+          <a
+            href="/Crypto-Debunking Crypto Myths.pdf"
+            download
+            className="flex items-center justify-between bg-white border rounded-lg px-4 py-3 hover:bg-gray-50"
+          >
+            <span className="text-sm">📗 Ebook 2 – Crypto-Debunking Crypto Myths</span>
+            <ArrowDown className="h-4 w-4" />
+          </a>
+
+          <a
+            href="/Crypto Derivative Trading.pdf"
+            download
+            className="flex items-center justify-between bg-white border rounded-lg px-4 py-3 hover:bg-gray-50"
+          >
+            <span className="text-sm">📙 Ebook 3 – Crypto Derivative Trading </span>
+            <ArrowDown className="h-4 w-4" />
+          </a>
         </div>
 
-        {/* WhatsApp CTA */}
+        {/* CTA */}
         <a
-          href="https://go.viralvigyapan.com/nnw"
+          href="https://chat.whatsapp.com/Gq9ZOw2An9M4q4WzAO5PZe"
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block mb-4"
         >
           <Button
             size="xl"
@@ -66,15 +88,16 @@ export const ThankYouPageOtoFb = () => {
               shadow-lg
             "
           >
-            <MessageCircle className="h-5 w-5" />
-            Join WhatsApp Group Now
+            Join WhatsApp for Live Session Updates
             <ArrowRight className="h-5 w-5" />
           </Button>
         </a>
 
         {/* Trust Line */}
-        <p className="text-xs text-gray-500 mt-4">
-          Join the WhatsApp group to receive updates, reminders, and bonus guidance
+        <p className="text-xs text-gray-500 leading-relaxed">
+          Yeh ek <strong>purely educational learning experience</strong> hai —
+          <br />
+          bina hype, bina pressure, bina promises.
         </p>
 
       </div>

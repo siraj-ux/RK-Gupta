@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { HeroSection } from '@/components/sections/ga/HeroSection';
-import { ProblemSection } from '@/components/sections/ga/ProblemSection';
+import { WorkshopLearningSection } from '@/components/sections/ga/Learning';
 import { WhatYoullLearnSection } from '@/components/sections/ga/WhatYoullLearnSection';
 import { ActionStepsSection } from '@/components/sections/ga/ActionStepsSection';
 import { BonusesSection } from '@/components/sections/ga/BonusesSection';
@@ -9,12 +9,20 @@ import { TestimonialsSection } from '@/components/sections/ga/TestimonialsSectio
 import { MentorSection } from '@/components/sections/ga/MentorSection';
 import { FAQSection } from '@/components/sections/ga/FAQSection';
 import { FinalCTASection } from '@/components/sections/ga/FinalCTASection';
-import { StickyMobileCTA } from '@/components/StickyMobileCTAGa';
+import { StickyMobileCTA } from '@/components/StickyMobileCTA';
+import { DisclaimerFooter } from '@/components/sections/ga/DisclaimerFooter';
+import { useFacebookPixel } from "@/hooks/useFacebookPixelHome";
+import { LearningPhilosophySection } from '@/components/sections/ga/LearningPhilosophySection';
+import { FreeAccessSection } from '@/components/sections/ga/FreeAccessSection';
+import { CelebsBeliefSection } from '@/components/sections/ga/CelebsBeliefSection';
 
 
-
-const IndexGa = () => {
+const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+
+useFacebookPixel()
+
+
 
   const scrollToHero = () => {
     heroRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -25,18 +33,18 @@ const IndexGa = () => {
       <div ref={heroRef}>
         <HeroSection />
       </div>
+      <LearningPhilosophySection/>
       <WhatYoullLearnSection />
-      <ActionStepsSection onCTAClick={scrollToHero} />
-      <ProblemSection />
-      <BonusesSection />
-      <WhoIsThisForSection onCTAClick={scrollToHero} />
+      <WorkshopLearningSection />
+      <FreeAccessSection/>
+      <CelebsBeliefSection/>
       <MentorSection />
-      <TestimonialsSection />
       <FAQSection />
       <FinalCTASection onCTAClick={scrollToHero} />
+      <DisclaimerFooter />
       <StickyMobileCTA onCTAClick={scrollToHero} />
     </main>
   );
 };
 
-export default IndexGa;
+export default Index;

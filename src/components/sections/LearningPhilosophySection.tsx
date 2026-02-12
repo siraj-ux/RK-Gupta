@@ -14,7 +14,7 @@ export const LearningPhilosophySection = () => {
         <div className="text-center max-w-3xl mx-auto mb-8">
 
           <h2 className="text-2xl md:text-4xl font-science font-bold leading-tight">
-            Learning Easy Aur <span className="text-[#007ea7]">Clear</span> Feel Hona Chahiye, Overload Jaisa Nah
+            Learning Easy Aur <span className="text-[#007ea7]">Clear</span> Feel Hona Chahiye, Overload Jaisa Nahi
           </h2>
         </div>
 
@@ -55,21 +55,21 @@ export const LearningPhilosophySection = () => {
               <li className="flex gap-3 items-start">
                 <CheckCircle2 className="h-5 w-5 text-[#00a8e8] mt-0.5" />
                 <span>
-                  Information ko <span className="font-semibold">simple language</span> mein explain karna
+                 Strategy-focused learning  <span className="font-semibold">session jahan concepts aur frameworks simple language</span>mein samjhaye jayenge
                 </span>
               </li>
 
               <li className="flex gap-3 items-start">
                 <CheckCircle2 className="h-5 w-5 text-[#00a8e8] mt-0.5" />
                 <span>
-                  Overthinking aur misinterpretation ko systematically reduce karna
+                Step-by-step explanation se overthinking aur misinterpretation reduce karna
                 </span>
               </li>
 
               <li className="flex gap-3 items-start">
                 <CheckCircle2 className="h-5 w-5 text-[#00a8e8] mt-0.5" />
                 <span>
-                  Decision sochne ka ek <span className="font-semibold">logical framework</span> banana
+                 Logical decision-making <span className="font-semibold">framework build karna.</span>
                 </span>
               </li>
             </ul>
@@ -78,7 +78,7 @@ export const LearningPhilosophySection = () => {
             <div className="mt-6 flex items-center gap-3 text-sm text-white/80">
               <Brain className="h-5 w-5 text-[#00a8e8]" />
               <span>
-                Clarity comes from structure — not speed.
+                Clarity comes from structures and systems , not speed.
               </span>
             </div>
           </div>
