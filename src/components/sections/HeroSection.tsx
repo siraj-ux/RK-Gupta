@@ -165,17 +165,15 @@ export const HeroSection = () => {
       />
 
       <div className="container relative pt-10 pb-20">
-        {/* CSS GRID Layout Strategy:
-            Mobile: 1 Column. Order controlled by 'order-1', 'order-2', etc.
-            Desktop: 2 Columns. Position controlled by 'lg:col-start-X' and 'lg:row-start-X'
-        */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          {/* 1. HEADLINES (Always First) */}
+          {/* 1. HEADLINES (Mobile: 1st | Desktop: Top Left) */}
           <div className="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold md:font-medium leading-tight lg:leading-tight">
               Digital Assets Ko Samajhkar Enter Karein Guesswork Se Nahi <br />
-              <span className="text-[#00a8e8] text-base md:text-lg block mt-4 font-normal leading-relaxed">
+              
+              {/* Added 'tracking-wide' and 'leading-loose' for more space between words */}
+              <span className="text-[#00a8e8] text-base md:text-lg block mt-4 font-normal leading-loose tracking-wide">
                 A structured live masterclass for professionals who want clarity before stepping into crypto.
               </span>
             </h1>
