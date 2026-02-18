@@ -5,6 +5,7 @@ import {
   Globe,
   Video,
   BookOpen,
+  X, 
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
@@ -12,7 +13,6 @@ import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 /* MM:SS TIMER */
 const MiniTimer = ({ initialSeconds = 900 }) => {
   const [seconds, setSeconds] = useState(initialSeconds);
-
 
   useFacebookPixel();
 
@@ -165,23 +165,51 @@ export const HeroSection = () => {
       />
 
       <div className="container relative pt-10 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
 
           {/* LEFT CONTENT */}
-          <div className="space-y-6 text-center lg:text-left">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Confusion Kam Karo <br />
-              <span className="text-[#00a8e8] text-xl">
-                Concepts Ko Clear Tareeke Se Samjho
-              </span>
-            </h1>
+          {/* Increased space-y-8 to space-y-10 for better vertical separation between sections */}
+          <div className="space-y-10 text-center lg:text-left">
+            
+            {/* Headlines Block */}
+            {/* Increased space-y-4 to space-y-6 */}
+            <div className="space-y-6">
+              {/* Changed font-semibold to font-medium */}
+              {/* Changed leading-snug to leading-normal for more line spacing */}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-normal">
+                Digital Assets Ko Samajhkar Enter Karein Guesswork Se Nahi <br />
+                <span className="text-[#00a8e8] text-xl block mt-4 font-normal leading-relaxed">
+                  A structured live masterclass for professionals who want clarity before stepping into crypto.
+                </span>
+              </h1>
 
-            <p className="text-md text-white/90">
-              Yeh workshop un logon ke liye hai jo learning ko
-              <span className="font-semibold"> shaant, structured aur practical </span>
-              tareeke se seekhna chahte hain.
-            </p>
+              <p className="text-lg text-white/90">
+                Reserve Your Seat In This Live Crypto Learning Session
+              </p>
+            </div>
 
+            {/* --- NOT FOR EVERYONE SECTION (Amber) --- */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 max-w-lg mx-auto lg:mx-0 backdrop-blur-sm">
+              <h3 className="text-lg font-bold text-amber-400 uppercase mb-4 tracking-wide border-b border-white/10 pb-2 inline-block">
+                This Masterclass Is Not For Everyone
+              </h3>
+              <ul className="space-y-3 text-left">
+                {[
+                  "Looking for quick profit tips",
+                  "Expecting trading signals",
+                  "Want overnight success",
+                  "Prefer shortcuts over understanding"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 text-white/90 text-sm md:text-base">
+                    <X className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" strokeWidth={3} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* ------------------------------------- */}
+
+            {/* Event Details Grid */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0">
               {[
                 { icon: Calendar, label: 'Date', value: sheetData.date },
@@ -191,11 +219,11 @@ export const HeroSection = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white rounded-xl p-3 flex items-center gap-3 text-black"
+                  className="bg-white rounded-xl p-3 flex items-center gap-3 text-black hover:bg-gray-50 transition"
                 >
                   <item.icon className="h-5 w-5 text-[#007ea7]" />
                   <div>
-                    <p className="text-xs">{item.label}</p>
+                    <p className="text-xs text-gray-500">{item.label}</p>
                     <p className="font-semibold text-sm">{item.value}</p>
                   </div>
                 </div>
@@ -203,8 +231,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="space-y-6 max-w-md mx-auto w-full">
+          {/* RIGHT SIDE (FORM) */}
+          <div className="space-y-6 max-w-md mx-auto w-full sticky top-10">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-[#00171f]" id="register">
 
               <h3 className="text-2xl font-bold text-center mb-1">
@@ -225,7 +253,7 @@ export const HeroSection = () => {
                 <input
                   required
                   placeholder="Full Name"
-                  className="w-full border rounded-lg px-4 py-3"
+                  className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7]"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -237,7 +265,7 @@ export const HeroSection = () => {
                     required
                     type="email"
                     placeholder="Email Address"
-                    className={`w-full border rounded-lg px-4 py-3 ${
+                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${
                       errors.email ? 'border-red-500' : ''
                     }`}
                     value={formData.email}
@@ -257,7 +285,7 @@ export const HeroSection = () => {
                     type="tel"
                     placeholder="Phone Number"
                     maxLength={10}
-                    className={`w-full border rounded-lg px-4 py-3 ${
+                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${
                       errors.phone ? 'border-red-500' : ''
                     }`}
                     value={formData.phone}
@@ -275,7 +303,7 @@ export const HeroSection = () => {
                 <input
                   required
                   placeholder="City"
-                  className="w-full border rounded-lg px-4 py-3"
+                  className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7]"
                   value={formData.city}
                   onChange={(e) =>
                     setFormData({ ...formData, city: e.target.value })
@@ -283,32 +311,36 @@ export const HeroSection = () => {
                 />
 
                 <label className="flex items-start gap-3 bg-[#f0f9ff] border border-[#00a8e8] rounded-lg p-3 cursor-pointer">
-                  <BookOpen className="h-5 w-5 text-[#007ea7] mt-1" />
-                  <input
-                    type="checkbox"
-                    checked={addEbook}
-                    onChange={(e) => setAddEbook(e.target.checked)}
-                    className="mt-1"
-                  />
-                  <span className="text-sm">
-                    <strong>
-                      Yes, ₹99 mein 3 learning ebooks add karein
+                  <BookOpen className="h-5 w-5 text-[#007ea7] mt-1 shrink-0" />
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="checkbox"
+                            checked={addEbook}
+                            onChange={(e) => setAddEbook(e.target.checked)}
+                            className="mt-0.5"
+                        />
+                        <span className="text-sm font-bold">
+                             Yes, ₹99 mein 3 learning ebooks add karein
+                        </span>
+                    </div>
+                    <span className="text-xs text-gray-500 ml-5">
                       (Worth ₹4,999 • purely educational)
-                    </strong>
-                  </span>
+                    </span>
+                  </div>
                 </label>
 
                <button
-  type="submit"
-  disabled={isSubmitting}
-  className={`w-full font-bold py-4 rounded-xl text-lg transition
-    ${isSubmitting
-      ? 'bg-gray-400 cursor-not-allowed'
-      : 'bg-[#007ea7] hover:bg-[#00a8e8] text-white'}
-  `}
->
-  {isSubmitting ? 'Submitting...' : 'Reserve My Seat'}
-</button>
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full font-bold py-4 rounded-xl text-lg transition shadow-lg
+                    ${isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-[#007ea7] hover:bg-[#00a8e8] text-white hover:shadow-xl transform hover:-translate-y-1'}
+                  `}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Reserve My Seat'}
+                </button>
               </form>
 
               <p className="text-xs text-center text-gray-500 mt-3">

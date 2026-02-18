@@ -170,9 +170,9 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-md text-white/90">
-              Yeh workshop un logon ke liye hai jo learning ko
-              <span className="font-semibold"> shaant, structured aur practical </span>
-              tareeke se seekhna chahte hain.
+              Reserve Your Seat In This Live Crypto Learning Session
+              {/* <span className="font-semibold"> shaant, structured aur practical </span>
+              tareeke se seekhna chahte hain. */}
             </p>
 
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0">
