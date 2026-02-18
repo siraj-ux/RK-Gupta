@@ -165,71 +165,49 @@ export const HeroSection = () => {
       />
 
       <div className="container relative pt-10 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        {/* CSS GRID Layout Strategy:
+            Mobile: 1 Column. Order controlled by 'order-1', 'order-2', etc.
+            Desktop: 2 Columns. Position controlled by 'lg:col-start-X' and 'lg:row-start-X'
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          {/* LEFT CONTENT */}
-          <div className="space-y-10 text-center lg:text-left">
-            
-            {/* Headlines Block */}
-            <div className="space-y-6">
-              {/* UPDATED: font-bold (for mobile) md:font-medium (for desktop) */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-medium leading-normal">
-                Digital Assets Ko Samajhkar Enter Karein Guesswork Se Nahi <br />
-                <span className="text-[#00a8e8] text-xl block mt-4 font-normal leading-relaxed">
-                  A structured live masterclass for professionals who want clarity before stepping into crypto.
-                </span>
-              </h1>
+          {/* 1. HEADLINES (Always First) */}
+          <div className="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left space-y-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold md:font-medium leading-tight lg:leading-tight">
+              Digital Assets Ko Samajhkar Enter Karein Guesswork Se Nahi <br />
+              <span className="text-[#00a8e8] text-base md:text-lg block mt-4 font-normal leading-relaxed">
+                A structured live masterclass for professionals who want clarity before stepping into crypto.
+              </span>
+            </h1>
 
-              <p className="text-lg text-white/90">
-                Reserve Your Seat In This Live Crypto Learning Session
-              </p>
-            </div>
-
-            {/* --- NOT FOR EVERYONE SECTION (Amber) --- */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 max-w-lg mx-auto lg:mx-0 backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-amber-400 uppercase mb-4 tracking-wide border-b border-white/10 pb-2 inline-block">
-                This Masterclass Is Not For Everyone
-              </h3>
-              <ul className="space-y-3 text-left">
-                {[
-                  "Looking for quick profit tips",
-                  "Expecting trading signals",
-                  "Want overnight success",
-                  "Prefer shortcuts over understanding"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-white/90 text-sm md:text-base">
-                    <X className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" strokeWidth={3} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {/* ------------------------------------- */}
-
-            {/* Event Details Grid */}
-            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0">
-              {[
-                { icon: Calendar, label: 'Date', value: sheetData.date },
-                { icon: Clock, label: 'Time', value: sheetData.time },
-                { icon: Globe, label: 'Language', value: 'Hindi' },
-                { icon: Video, label: 'Mode', value: 'Online (Live)' },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-xl p-3 flex items-center gap-3 text-black hover:bg-gray-50 transition"
-                >
-                  <item.icon className="h-5 w-5 text-[#007ea7]" />
-                  <div>
-                    <p className="text-xs text-gray-500">{item.label}</p>
-                    <p className="font-semibold text-sm">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="text-base md:text-lg text-white/90">
+              Reserve Your Seat In This Live Crypto Learning Session
+            </p>
           </div>
 
-          {/* RIGHT SIDE (FORM) */}
-          <div className="space-y-6 max-w-md mx-auto w-full sticky top-10">
+          {/* 2. DATE GRID (Mobile: 2nd | Desktop: Below Headlines) */}
+          <div className="order-2 lg:col-start-1 lg:row-start-2 grid grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0 w-full">
+            {[
+              { icon: Calendar, label: 'Date', value: sheetData.date },
+              { icon: Clock, label: 'Time', value: sheetData.time },
+              { icon: Globe, label: 'Language', value: 'Hindi' },
+              { icon: Video, label: 'Mode', value: 'Online (Live)' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-xl p-3 flex items-center gap-3 text-black hover:bg-gray-50 transition"
+              >
+                <item.icon className="h-5 w-5 text-[#007ea7]" />
+                <div>
+                  <p className="text-xs text-gray-500">{item.label}</p>
+                  <p className="font-semibold text-sm">{item.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 3. FORM (Mobile: 3rd | Desktop: Right Column, Spanning rows) */}
+          <div className="order-3 lg:col-start-2 lg:row-start-1 lg:row-span-3 sticky top-10 w-full max-w-md mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-[#00171f]" id="register">
 
               <h3 className="text-2xl font-bold text-center mb-1">
@@ -246,7 +224,6 @@ export const HeroSection = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-
                 <input
                   required
                   placeholder="Full Name"
@@ -344,6 +321,26 @@ export const HeroSection = () => {
                 No hype • No tips • Only clarity
               </p>
             </div>
+          </div>
+
+          {/* 4. NOT FOR EVERYONE (Mobile: 4th | Desktop: Below Date) */}
+          <div className="order-4 lg:col-start-1 lg:row-start-3 bg-white/5 border border-white/10 rounded-xl p-6 max-w-lg mx-auto lg:mx-0 backdrop-blur-sm w-full">
+            <h3 className="text-base md:text-lg font-bold text-amber-400 uppercase mb-4 tracking-wide border-b border-white/10 pb-2 inline-block">
+              This Masterclass Is Not For Everyone
+            </h3>
+            <ul className="space-y-3 text-left">
+              {[
+                "Looking for quick profit tips",
+                "Expecting trading signals",
+                "Want overnight success",
+                "Prefer shortcuts over understanding"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-white/90 text-sm md:text-base">
+                  <X className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" strokeWidth={3} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
         </div>
