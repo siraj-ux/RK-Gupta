@@ -168,15 +168,12 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
           {/* LEFT CONTENT */}
-          {/* Increased space-y-8 to space-y-10 for better vertical separation between sections */}
           <div className="space-y-10 text-center lg:text-left">
             
             {/* Headlines Block */}
-            {/* Increased space-y-4 to space-y-6 */}
             <div className="space-y-6">
-              {/* Changed font-semibold to font-medium */}
-              {/* Changed leading-snug to leading-normal for more line spacing */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-normal">
+              {/* UPDATED: font-bold (for mobile) md:font-medium (for desktop) */}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-medium leading-normal">
                 Digital Assets Ko Samajhkar Enter Karein Guesswork Se Nahi <br />
                 <span className="text-[#00a8e8] text-xl block mt-4 font-normal leading-relaxed">
                   A structured live masterclass for professionals who want clarity before stepping into crypto.
