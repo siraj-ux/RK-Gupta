@@ -24,7 +24,7 @@ export const ThankYouPage = () => {
         </h1>
 
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Aapki seat <strong> Live Conceptual Learning Masterclass</strong> ke liye
+          Aapki seat <strong> Live Crypto Learning Masterclass</strong> ke liye
           successfully confirm ho chuki hai.
           <br />
           
