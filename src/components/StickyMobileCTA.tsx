@@ -22,7 +22,7 @@ export const StickyMobileCTA = ({ onCTAClick }: StickyMobileCTAProps) => {
           <div className="flex flex-col">
             <span className="text-[11px] font-bold text-red-600 animate-blink flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              First 100 FREE
+              Register @ only ₹9/-
             </span>
             <CountdownTimer className="scale-75 origin-left" />
           </div>

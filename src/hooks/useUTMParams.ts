@@ -21,18 +21,22 @@ export const useUTMParams = (): UTMParams => {
   }, []);
 };
 
+/** Optional amountInr (e.g. 9 for ₹9) adds amount= paise to URL for Razorpay. */
 export const buildRazorpayURL = (
   baseURL: string,
   formData: { name: string; email: string; phone: string; city: string },
-  utmParams: UTMParams
+  utmParams: UTMParams,
+  amountInr?: number
 ): string => {
-  const params = new URLSearchParams({
+  const params: Record<string, string> = {
     full_name: formData.name,
     email: formData.email,
     phone: formData.phone,
     city: formData.city,
     ...utmParams,
-  });
-  
-  return `${baseURL}?${params.toString()}`;
+  };
+  if (amountInr != null) {
+    params.amount = String(amountInr * 100);
+  }
+  return `${baseURL}?${new URLSearchParams(params).toString()}`;
 };

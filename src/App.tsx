@@ -10,6 +10,7 @@ import { ThankYouPageOtoFb } from "./pages/ThankuPageOtoFb";
 import { ThankYouPageOtoGa } from "./pages/ThankuPageOtoGa";
 import { ThankYouPageGa } from "./pages/ThankYouPageGa";
 import IndexGa from "./pages/IndexGa";
+import { RegistrationPaymentPage } from "./pages/RegistrationPaymentPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index/>} />
           <Route path="/ty-fb" element={<ThankYouPage/>} />
           <Route path="/ga" element={<IndexGa/>} />
+          <Route path="/register" element={<RegistrationPaymentPage />} />
           <Route path="/ty-ga" element={<ThankYouPageGa/>} />
           <Route path="/ty-oto-fb" element={<ThankYouPageOtoFb/>} />
           <Route path="/ty-oto-ga" element={<ThankYouPageOtoGa/>} />

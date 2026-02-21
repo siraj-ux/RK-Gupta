@@ -6,7 +6,10 @@ import {
   Video,
   BookOpen,
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useUTMParams, buildRazorpayURL } from '@/hooks/useUTMParams';
+
+const REGISTRATION_RAZORPAY_URL = 'https://pages.razorpay.com/pl_RkKu9mBvHqnbE1/view';
+const EBOOKS_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view';
 
 /* MM:SS TIMER */
 const MiniTimer = ({ initialSeconds = 900 }) => {
@@ -30,9 +33,7 @@ const MiniTimer = ({ initialSeconds = 900 }) => {
 };
 
 export const HeroSection = () => {
-  const navigate = useNavigate();
-
-  /* OTO */
+  const utmParams = useUTMParams();
   const [addEbook, setAddEbook] = useState(false);
 
   /* FORM DATA */
@@ -134,19 +135,24 @@ export const HeroSection = () => {
       console.error('Lead save failed', err);
     }
 
-    /* REDIRECT */
+    /* If ebook add-on selected → ₹99 ebooks Razorpay link; else → ₹9 registration payment */
     if (addEbook) {
       const query = new URLSearchParams({
-        name: formData.name,
+        full_name: formData.name,
         email: formData.email,
         phone: formData.phone,
         city: formData.city,
+        ...utmParams,
       }).toString();
-
-      window.location.href =
-        `https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view?${query}`;
+      window.location.href = `${EBOOKS_RAZORPAY_URL}?${query}`;
     } else {
-      navigate('/ty-ga');
+      const razorpayURL = buildRazorpayURL(
+        REGISTRATION_RAZORPAY_URL,
+        formData,
+        utmParams,
+        9
+      );
+      window.location.href = razorpayURL;
     }
   };
 
@@ -201,7 +207,7 @@ export const HeroSection = () => {
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-[#00171f]" id="register">
 
               <h3 className="text-2xl font-bold text-center mb-1">
-                Register for the Live Masterclass For FREE
+                Register for the Live Masterclass @ only ₹9/-
               </h3>
 
               <p className="text-sm text-center mb-4 animate-pulse font-semibold text-red-600 flex items-center justify-center gap-2">
@@ -276,19 +282,23 @@ export const HeroSection = () => {
                 />
 
                 <label className="flex items-start gap-3 bg-[#f0f9ff] border border-[#00a8e8] rounded-lg p-3 cursor-pointer">
-                  <BookOpen className="h-5 w-5 text-[#007ea7] mt-1" />
-                  <input
-                    type="checkbox"
-                    checked={addEbook}
-                    onChange={(e) => setAddEbook(e.target.checked)}
-                    className="mt-1"
-                  />
-                  <span className="text-sm">
-                    <strong>
-                      Yes, ₹99 mein 3 learning ebooks add karein
+                  <BookOpen className="h-5 w-5 text-[#007ea7] mt-1 shrink-0" />
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={addEbook}
+                        onChange={(e) => setAddEbook(e.target.checked)}
+                        className="mt-0.5"
+                      />
+                      <span className="text-sm font-bold">
+                        Yes, ₹99 mein 3 learning ebooks add karein
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-500 ml-5">
                       (Worth ₹4,999 • purely educational)
-                    </strong>
-                  </span>
+                    </span>
+                  </div>
                 </label>
 
                 <button

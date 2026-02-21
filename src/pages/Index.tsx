@@ -13,7 +13,6 @@ import { StickyMobileCTA } from '@/components/StickyMobileCTA';
 import { DisclaimerFooter } from '@/components/sections/DisclaimerFooter';
 import { useFacebookPixel } from "@/hooks/useFacebookPixelHome";
 import { LearningPhilosophySection } from '@/components/sections/LearningPhilosophySection';
-import { FreeAccessSection } from '@/components/sections/FreeAccessSection';
 import { CelebsBeliefSection } from '@/components/sections/CelebsBeliefSection';
 
 
@@ -36,7 +35,6 @@ useFacebookPixel()
       <LearningPhilosophySection/>
       <WhatYoullLearnSection />
       <WorkshopLearningSection />
-      <FreeAccessSection/>
       <CelebsBeliefSection/>
       <MentorSection />
       <FAQSection />

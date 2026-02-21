@@ -37,7 +37,7 @@ export const FreeAccessSection = () => {
           <h2 className="text-2xl md:text-4xl font-science font-bold mb-4">
             First 100 Learners –{' '}
             <span className="relative inline-block text-[#E1B125]">
-              FREE Access
+              Register @ only ₹9/-
               <span className="absolute inset-0 bg-[#00ffcc]/40 blur-xl -z-10 animate-pulse" />
             </span>
           </h2>
@@ -48,7 +48,7 @@ export const FreeAccessSection = () => {
             <span className="font-semibold"> maximum logon tak structured education pahunchana</span>.
             <br />
             Isliye pehle 100 registrations ke liye
-            <span className="font-semibold text-[#E1B125]"> complete access FREE</span> rakha gaya hai.
+            <span className="font-semibold text-[#E1B125]"> nominal registration fee sirf only ₹9/-</span> rakha gaya hai.
           </p>
 
           {/* PRICE */}
@@ -72,7 +72,7 @@ export const FreeAccessSection = () => {
                 transition shadow-xl z-10
               "
             >
-              FREE Seat Claim Karein
+              Pay only ₹9/- & Seat Claim Karein
               <ArrowUpRight className="h-5 w-5" />
             </button>
 
