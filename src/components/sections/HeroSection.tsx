@@ -7,12 +7,12 @@ import {
   BookOpen,
   X,
 } from 'lucide-react';
-import { useUTMParams, buildRazorpayURL } from '@/hooks/useUTMParams';
+import { useUTMParams } from '@/hooks/useUTMParams';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 
 // URLs
-const REGISTRATION_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAxQmR7a5jwEr/view'; // NEW ₹9 LINK
-const EBOOKS_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view';       // OLD ₹99 LINK
+const REGISTRATION_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAxQmR7a5jwEr/view'; // ₹9 LINK
+const EBOOKS_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view';       // ₹99 LINK
 
 /* MM:SS TIMER COMPONENT */
 const MiniTimer = ({ initialSeconds = 900 }) => {
@@ -145,27 +145,23 @@ export const HeroSection = () => {
       console.error('Lead save failed', err);
     }
 
-    /* REDIRECTION LOGIC - FIXED NAME PASSING FOR EBOOK LINK */
+    /* REDIRECTION LOGIC - Corrected to pass name via multiple keys */
+    const queryParams = new URLSearchParams({
+      name: formData.name,      // For standard pages
+      full_name: formData.name, // For newer pages
+      Name: formData.name,      // Some custom pages use capitalized Name
+      email: formData.email,
+      phone: formData.phone,
+      city: formData.city,
+      ...utmParams,
+    }).toString();
+
     if (addEbook) {
-      // Passes BOTH 'name' and 'full_name' to ensure pl_SAAxQmR7a5jwEr picks it up
-      const query = new URLSearchParams({
-        name: formData.name,      
-        full_name: formData.name,
-        Name: formData.name, 
-        email: formData.email,
-        phone: formData.phone,
-        city: formData.city,
-        ...utmParams,
-      }).toString();
-      window.location.href = `${EBOOKS_RAZORPAY_URL}?${query}`;
+      // IF CHECKED (YES) -> Redirect to ₹99 Link
+      window.location.href = `${EBOOKS_RAZORPAY_URL}?${queryParams}`;
     } else {
-      const razorpayURL = buildRazorpayURL(
-        REGISTRATION_RAZORPAY_URL,
-        formData, 
-        utmParams,
-        9
-      );
-      window.location.href = razorpayURL;
+      // IF UNCHECKED (NO) -> Redirect to ₹9 Link
+      window.location.href = `${REGISTRATION_RAZORPAY_URL}?${queryParams}`;
     }
   };
 
@@ -179,6 +175,7 @@ export const HeroSection = () => {
       <div className="container relative pt-10 pb-20 px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
+          {/* 1. HEADLINES (Left Aligned + Yellow Color) */}
           <div className="order-1 lg:col-start-1 lg:row-start-1 text-left space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Digital Assets Ko Samajhkar Enter Karein, <br />
@@ -194,6 +191,7 @@ export const HeroSection = () => {
             </p>
           </div>
 
+          {/* 2. DATE GRID (Left Aligned) */}
           <div className="order-2 lg:col-start-1 lg:row-start-2 grid grid-cols-2 gap-3 max-w-md w-full">
             {[
               { icon: Calendar, label: 'Date', value: sheetData.date },
@@ -214,6 +212,7 @@ export const HeroSection = () => {
             ))}
           </div>
 
+          {/* 3. STICKY FORM */}
           <div className="order-3 lg:col-start-2 lg:row-start-1 lg:row-span-3 sticky top-10 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-[#00171f]" id="register">
 
@@ -313,6 +312,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
+          {/* 4. NOT FOR EVERYONE SECTION (Left Aligned) */}
           <div className="order-4 lg:col-start-1 lg:row-start-3 bg-white/5 border border-white/10 rounded-xl p-6 max-w-lg w-full">
             <h3 className="text-base md:text-lg font-bold text-amber-400 uppercase mb-4 tracking-wide border-b border-white/10 pb-2 inline-block">
               This Masterclass Is Not For Everyone
