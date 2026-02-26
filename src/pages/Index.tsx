@@ -6,6 +6,7 @@ import { ActionStepsSection } from '@/components/sections/ActionStepsSection';
 import { BonusesSection } from '@/components/sections/BonusesSection';
 import { WhoIsThisForSection } from '@/components/sections/WhoIsThisForSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+import { PastAttendeesSection } from '@/components/sections/PastAttendeesSection';
 import { MentorSection } from '@/components/sections/MentorSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
@@ -14,7 +15,7 @@ import { DisclaimerFooter } from '@/components/sections/DisclaimerFooter';
 import { useFacebookPixel } from "@/hooks/useFacebookPixelHome";
 import { LearningPhilosophySection } from '@/components/sections/LearningPhilosophySection';
 import { CelebsBeliefSection } from '@/components/sections/CelebsBeliefSection';
-
+import { PhotoGallerySection } from '@/components/sections/PhotoGallerySection';
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -32,11 +33,13 @@ useFacebookPixel()
       <div ref={heroRef}>
         <HeroSection />
       </div>
+      <CelebsBeliefSection/>
+      <MentorSection />
+      <PhotoGallerySection />
       <LearningPhilosophySection/>
       <WhatYoullLearnSection />
       <WorkshopLearningSection />
-      <CelebsBeliefSection/>
-      <MentorSection />
+      <PastAttendeesSection />
       <FAQSection />
       <FinalCTASection onCTAClick={scrollToHero} />
       <DisclaimerFooter />

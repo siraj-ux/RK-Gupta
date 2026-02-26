@@ -33,12 +33,12 @@ export const FinalCTASection = ({ onCTAClick }: FinalCTASectionProps) => {
           </h2>
 
           {/* COPY */}
-          <p className="text-md md:text-base text-white/80 max-w-3xl mx-auto leading-relaxed mb-6 text-left">
+            <p className="text-md md:text-base text-white/80 max-w-3xl mx-auto leading-relaxed mb-6 text-left">
             Agar aap concepts ko clear aur structured tareeke se samajhna chahte ho,
             aur learning ko bina pressure lena chahte ho,
             toh yeh session aapke liye hai.
             <br className="hidden md:block" />
-            Yeh ek calm, safe aur focused learning experience hai —
+            Yeh ek calm, safe aur focused learning experience hai,
             bina hype, bina promises, bina shortcuts.
           </p>
 

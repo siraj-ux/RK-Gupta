@@ -26,7 +26,7 @@ export const LearningPhilosophySection = () => {
             <p className="text-md leading-relaxed text-[#00171f]/90">
               Mera approach bilkul simple hai.  
               Main concepts ko <span className="font-semibold">slow, clear aur structured</span>{' '}
-              tareeke se samjhata hoon — taaki understanding strong ho aur confusion naturally kam ho.
+              tareeke se samjhata hoon, taaki understanding strong ho aur confusion naturally kam ho.
             </p>
 
             <p className="text-md leading-relaxed text-[#00171f]/90">
@@ -38,7 +38,7 @@ export const LearningPhilosophySection = () => {
             <div className="flex items-start gap-3 bg-[#f0f9ff] border border-[#00a8e8]/40 rounded-xl p-4">
               <ShieldCheck className="h-6 w-6 text-[#007ea7] mt-0.5" />
               <p className="text-sm leading-relaxed text-[#00171f]/90">
-                Yeh session learning ke liye design kiya gaya hai —
+                Yeh session learning ke liye design kiya gaya hai,
                 <span className="font-semibold"> na ki claims, guarantees ya pressure</span> ke liye.
               </p>
             </div>
@@ -78,7 +78,7 @@ export const LearningPhilosophySection = () => {
             <div className="mt-6 flex items-center gap-3 text-sm text-white/80">
               <Brain className="h-5 w-5 text-[#00a8e8]" />
               <span>
-                Clarity comes from structure — not speed.
+                Clarity comes from structure, not speed.
               </span>
             </div>
           </div>

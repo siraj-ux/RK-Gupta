@@ -11,8 +11,8 @@ import { useUTMParams } from '@/hooks/useUTMParams';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 
 // URLs
-const REGISTRATION_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAxQmR7a5jwEr/view'; // ₹9 LINK
-const EBOOKS_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view';       // ₹99 LINK
+const REGISTRATION_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAxQmR7a5jwEr/view'; 
+const EBOOKS_RAZORPAY_URL = 'https://pages.razorpay.com/pl_SAAygaG1atU5Ub/view';       
 
 /* MM:SS TIMER COMPONENT */
 const MiniTimer = ({ initialSeconds = 900 }) => {
@@ -36,14 +36,11 @@ const MiniTimer = ({ initialSeconds = 900 }) => {
 };
 
 export const HeroSection = () => {
-  // Initialize Facebook Pixel
   useFacebookPixel();
-
   const utmParams = useUTMParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [addEbook, setAddEbook] = useState(false);
 
-  /* FORM DATA */
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,19 +48,16 @@ export const HeroSection = () => {
     city: '',
   });
 
-  /* FORM ERRORS */
   const [errors, setErrors] = useState({
     email: '',
     phone: '',
   });
 
-  /* GOOGLE SHEET DATA */
   const [sheetData, setSheetData] = useState({
     date: 'Loading...',
     time: 'Loading...',
   });
 
-  /* FETCH EVENT DETAILS */
   useEffect(() => {
     fetch(
       'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNbThNq5PaLsO8hgj4EIb5CTjMp8-kOOI9jpi18eTL-p9v5vh-QeOSOeqaozauJOAy2fs5mOQIhk4G/pub?output=csv'
@@ -86,7 +80,6 @@ export const HeroSection = () => {
   const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidPhone = (phone: string) => /^[0-9]{10}$/.test(phone);
 
-  /* SUBMIT HANDLER */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -108,7 +101,6 @@ export const HeroSection = () => {
 
     setIsSubmitting(true);
 
-    // Track Lead
     if (window.fbq) {
       window.fbq('track', 'Lead', {
         content_name: 'Masterclass Registration',
@@ -145,11 +137,8 @@ export const HeroSection = () => {
       console.error('Lead save failed', err);
     }
 
-    /* REDIRECTION LOGIC - Corrected to pass name via multiple keys */
     const queryParams = new URLSearchParams({
-      name: formData.name,      // For standard pages
-      full_name: formData.name, // For newer pages
-      Name: formData.name,      // Some custom pages use capitalized Name
+      full_name: formData.name,
       email: formData.email,
       phone: formData.phone,
       city: formData.city,
@@ -157,10 +146,8 @@ export const HeroSection = () => {
     }).toString();
 
     if (addEbook) {
-      // IF CHECKED (YES) -> Redirect to ₹99 Link
       window.location.href = `${EBOOKS_RAZORPAY_URL}?${queryParams}`;
     } else {
-      // IF UNCHECKED (NO) -> Redirect to ₹9 Link
       window.location.href = `${REGISTRATION_RAZORPAY_URL}?${queryParams}`;
     }
   };
@@ -175,15 +162,15 @@ export const HeroSection = () => {
       <div className="container relative pt-10 pb-20 px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          {/* 1. HEADLINES (Left Aligned + Yellow Color) */}
+          {/* 1. HEADLINES */}
           <div className="order-1 lg:col-start-1 lg:row-start-1 text-left space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Digital Assets Ko Samajhkar Enter Karein, <br />
-              <span className="text-[#facc15]">Guesswork Se Nahi</span>
+              Crypto Ko Lekar Jo Confusion Hai, <br />
+              <span className="text-[#facc15]">2 Ghante Mein Clarity Milegi</span>
             </h1>
 
-            <p className="text-[#00a8e8] text-base md:text-lg block mt-4 font-normal leading-loose tracking-wide">
-              A structured live masterclass for professionals who want clarity before stepping into crypto.
+            <p className="text-[#00a8e8] text-xl md:text-2xl block mt-4 font-semibold tracking-wide">
+              Hindi Mein, Step By Step, Bina Hype Ke.
             </p>
 
             <p className="text-base md:text-lg text-white/90">
@@ -191,7 +178,7 @@ export const HeroSection = () => {
             </p>
           </div>
 
-          {/* 2. DATE GRID (Left Aligned) */}
+          {/* 2. DATE GRID */}
           <div className="order-2 lg:col-start-1 lg:row-start-2 grid grid-cols-2 gap-3 max-w-md w-full">
             {[
               { icon: Calendar, label: 'Date', value: sheetData.date },
@@ -215,16 +202,13 @@ export const HeroSection = () => {
           {/* 3. STICKY FORM */}
           <div className="order-3 lg:col-start-2 lg:row-start-1 lg:row-span-3 sticky top-10 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-[#00171f]" id="register">
-
               <h3 className="text-2xl font-bold text-center mb-1">
                 Register for the Live Masterclass @ only ₹9/-
               </h3>
-
               <p className="text-sm text-center mb-4 animate-pulse font-semibold text-red-600 flex items-center justify-center gap-2">
                 <Clock className="h-4 w-4" />
                 Limited seats • Live learning format
               </p>
-
               <div className="flex justify-center mb-4">
                 <MiniTimer initialSeconds={900} />
               </div>
@@ -237,39 +221,23 @@ export const HeroSection = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
-
-                <div>
-                  <input
-                    required
-                    type="email"
-                    placeholder="Email Address"
-                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${errors.email ? 'border-red-500' : ''}`}
-                    value={formData.email}
-                    onChange={(e) => {
-                      setFormData({ ...formData, email: e.target.value });
-                      setErrors({ ...errors, email: '' });
-                    }}
-                  />
-                  {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
-                </div>
-
-                <div>
-                  <input
-                    required
-                    type="tel"
-                    placeholder="Phone Number"
-                    maxLength={10}
-                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${errors.phone ? 'border-red-500' : ''}`}
-                    value={formData.phone}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, '');
-                      setFormData({ ...formData, phone: value });
-                      setErrors({ ...errors, phone: '' });
-                    }}
-                  />
-                  {errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone}</p>}
-                </div>
-
+                <input
+                  required
+                  type="email"
+                  placeholder="Email Address"
+                  className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${errors.email ? 'border-red-500' : ''}`}
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+                <input
+                  required
+                  type="tel"
+                  placeholder="Phone Number"
+                  maxLength={10}
+                  className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007ea7] ${errors.phone ? 'border-red-500' : ''}`}
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
+                />
                 <input
                   required
                   placeholder="City"
@@ -277,23 +245,23 @@ export const HeroSection = () => {
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 />
-
+                
                 <label className="flex items-start gap-3 bg-[#f0f9ff] border border-[#00a8e8] rounded-lg p-3 cursor-pointer">
-                  <BookOpen className="h-5 w-5 text-[#007ea7] mt-1 shrink-0" />
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={addEbook}
-                        onChange={(e) => setAddEbook(e.target.checked)}
-                        className="mt-0.5"
-                      />
-                      <span className="text-sm font-bold">
-                        Yes, ₹99 mein 3 learning ebooks add karein
-                      </span>
-                    </div>
-                  </div>
+                  <input
+                    type="checkbox"
+                    checked={addEbook}
+                    onChange={(e) => setAddEbook(e.target.checked)}
+                    className="mt-1"
+                  />
+                  <span className="text-sm font-bold">
+                    Yes, ₹99 mein 3 learning ebooks add karein
+                  </span>
                 </label>
+
+                {/* ADDED REASSURANCE TEXT */}
+                <p className="text-[11px] md:text-xs text-gray-500 text-center leading-relaxed italic px-2">
+                  ₹9 ek cup chai se bhi kam hai. Agar session aapke kaam ka na lage, aapko kuch nahi khona. Agar kaam aaya, toh clarity mil gayi.
+                </p>
 
                 <button
                   type="submit"
@@ -302,18 +270,7 @@ export const HeroSection = () => {
                     ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#007ea7] hover:bg-[#00a8e8] text-white transform hover:-translate-y-1'}
                   `}
                 >
-                  {isSubmitting ? (
-                    'Processing...'
-                  ) : addEbook ? (
-                    <>
-                      <span className="block">Pay ₹99/- Reserve Seat</span>
-                      <span className="block text-xs md:text-sm">
-                        + 3 Learning Ebooks
-                      </span>
-                    </>
-                  ) : (
-                    'Pay ₹9/- & Reserve My Seat'
-                  )}
+                  {isSubmitting ? 'Processing...' : addEbook ? 'Pay ₹99/- & Reserve My Seat' : 'Pay ₹9/- & Reserve My Seat'}
                 </button>
               </form>
 
@@ -323,7 +280,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* 4. NOT FOR EVERYONE SECTION (Left Aligned) */}
+          {/* 4. NOT FOR EVERYONE SECTION */}
           <div className="order-4 lg:col-start-1 lg:row-start-3 bg-white/5 border border-white/10 rounded-xl p-6 max-w-lg w-full">
             <h3 className="text-base md:text-lg font-bold text-amber-400 uppercase mb-4 tracking-wide border-b border-white/10 pb-2 inline-block">
               This Masterclass Is Not For Everyone

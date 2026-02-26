@@ -23,13 +23,6 @@ export const DisclaimerFooter = () => {
           </p>
 
           <p>
-            <span className="font-semibold">SEBI COMPLIANCE:</span>{' '}
-            SEBI registration number: <span className="font-semibold">Not Registered</span>.
-            This educational program does not provide investment advisory services.
-            Content focuses on technology understanding, not investment strategies.
-          </p>
-
-          <p>
             <span className="font-semibold">AGE REQUIREMENT:</span>{' '}
             Participants must be at least <span className="font-semibold">18 years old</span>
             to attend any financial or technology education programs or workshops.
@@ -71,6 +64,11 @@ export const DisclaimerFooter = () => {
             Educational fees (if applicable) are non-refundable once sessions begin.
             Materials are for personal use only. Respectful participation is required.
           </p>
+
+          {/* Updated SEBI COMPLIANCE: Moved to bottom and made very small */}
+          <p className="text-[10px] leading-tight text-[#00171f]/60 pt-2 border-t border-black/5 max-w-3xl mx-auto">
+          <span className="font-bold uppercase">SEBI Compliance:</span> This is a pure educational program focused on technology concepts, not investment advisory. Educational workshops of this nature do not fall under SEBI registration requirements, the same way a finance book or a college lecture does not require SEBI registration.
+          </p>
         </div>
 
         {/* Divider */}
@@ -81,5 +79,6 @@ export const DisclaimerFooter = () => {
           © {new Date().getFullYear()} RK Gupta • All Rights Reserved
         </p>
       </div>
-    </footer>  );
+    </footer>
+  );
 };

@@ -102,7 +102,7 @@ export const ThankYouPageOtoGa = () => {
 
         {/* Trust Line */}
         <p className="text-xs text-gray-500 leading-relaxed">
-          Yeh ek <strong>purely educational learning experience</strong> hai —
+          Yeh ek <strong>purely educational learning experience</strong> hai,
           <br />
           bina hype, bina pressure, bina promises.
         </p>

@@ -73,7 +73,7 @@ export const TestimonialsSection = () => {
             </span>
             <h2 className="text-2xl md:text-3xl font-science font-bold">
               More Than 20,000 People Love Our Course 
-              <span className='text-primary'>  Here Is What They Are Saying :-</span>
+              <span className='text-primary'> Here Is What They Are Saying:</span>
             </h2>
           </div>
 

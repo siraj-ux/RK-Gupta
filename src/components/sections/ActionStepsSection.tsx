@@ -52,7 +52,7 @@ export const ActionStepsSection = ({ onCTAClick }: ActionStepsSectionProps) => {
               </span>
 
               <h2 className="text-3xl md:text-4xl font-science font-bold leading-tight">
-                This Is NOT Just "Gyaan" —{' '}
+                This Is NOT Just "Gyaan",{` `}
                 <span className="text-yellow-400">You'll Get Action Steps</span>
               </h2>
             </div>

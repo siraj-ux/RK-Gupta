@@ -29,7 +29,7 @@ const bonuses = [
   {
     icon: Gift,
     title: 'Numerology Software (FREE)',
-    description: 'Premium software worth ₹5,000 — FREE for lifetime',
+    description: 'Premium software worth ₹5,000, FREE for lifetime',
     accent: 'from-yellow-400 to-orange-500',
     highlight: true,
   },

@@ -26,7 +26,7 @@ export const LearningPhilosophySection = () => {
             <p className="text-md leading-relaxed text-[#00171f]/90">
               Mera approach bilkul simple hai.  
               Main concepts ko <span className="font-semibold">slow, clear aur structured</span>{' '}
-              tareeke se samjhata hoon — taaki understanding strong ho aur confusion naturally kam ho.
+              tareeke se samjhata hoon, taaki understanding strong ho aur confusion naturally kam ho.
             </p>
 
             <p className="text-md leading-relaxed text-[#00171f]/90">
@@ -38,7 +38,7 @@ export const LearningPhilosophySection = () => {
             <div className="flex items-start gap-3 bg-[#f0f9ff] border border-[#00a8e8]/40 rounded-xl p-4">
               <ShieldCheck className="h-6 w-6 text-[#007ea7] mt-0.5" />
               <p className="text-sm leading-relaxed text-[#00171f]/90">
-                Yeh session learning ke liye design kiya gaya hai —
+                Yeh session learning ke liye design kiya gaya hai,
                 <span className="font-semibold"> na ki claims, guarantees ya pressure</span> ke liye.
               </p>
             </div>
@@ -48,7 +48,7 @@ export const LearningPhilosophySection = () => {
           <div className="bg-[#003459] rounded-2xl p-6 md:p-8 border border-[#007ea7]/40 text-white">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <Layers className="h-6 w-6 text-[#00a8e8]" />
-              Is session ka clear goal:
+              Is Session Ka Clear Goal:
             </h3>
 
             <ul className="space-y-4 text-sm">

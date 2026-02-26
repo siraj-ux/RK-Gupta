@@ -39,7 +39,7 @@ export const FAQSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-white/80">
-            Common doubts — clear, honest answers.
+            Common Doubts, Clear, Honest Answers.
           </p>
         </div>
 

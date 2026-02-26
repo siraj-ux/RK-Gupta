@@ -61,7 +61,7 @@ export const ThankYouPage = () => {
         </a>
 
         <p className="text-xs text-gray-500 mt-4">
-          Bina hype, bina pressure — pure educational session.
+          Bina hype, bina pressure, pure educational session.
         </p>
       </div>
     </section>

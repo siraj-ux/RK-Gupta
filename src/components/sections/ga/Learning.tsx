@@ -48,7 +48,7 @@ export const WorkshopLearningSection = () => {
                 Structured explanation prefer karte ho
               </h3>
               <p className="text-sm text-[#00171f]/80">
-                Aapko step-by-step flow chahiye — random information nahi.
+                Aapko step-by-step flow chahiye, random information nahi.
               </p>
             </div>
           </div>
@@ -84,7 +84,7 @@ export const WorkshopLearningSection = () => {
         <div className="mt-8 max-w-3xl mx-auto text-center">
           <p className="text-lg text-[#00171f]/80">
             Yeh session un logon ke liye hai jo
-            <span className="font-semibold"> samajh ke seekhna</span> chahte hain —  
+            <span className="font-semibold"> samajh ke seekhna</span> chahte hain,  
             na ki shortcuts, hype ya guarantees ke liye.
           </p>
         </div>

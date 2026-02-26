@@ -11,7 +11,7 @@ export const ThankYouPageGa = () => {
           send_to: "AW-17912580773/Ec-BCJH0iPAbEKWVsd1C",
           value: 1.0,
           currency: "INR",
-          transaction_id: "", // optional — can be populated later
+          transaction_id: "", // optional, can be populated later
         });
       }
     }, []);
@@ -78,7 +78,7 @@ export const ThankYouPageGa = () => {
 
         {/* Trust Line */}
         <p className="text-xs text-gray-500 mt-4 leading-relaxed">
-          Yeh ek <strong>calm, structured aur educational live session</strong> hai —
+          Yeh ek <strong>calm, structured aur educational live session</strong> hai,
           <br />
           bina hype, bina pressure, bina claims.
         </p>

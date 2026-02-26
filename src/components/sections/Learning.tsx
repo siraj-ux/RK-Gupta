@@ -32,7 +32,7 @@ export const WorkshopLearningSection = () => {
             <Layers className="h-7 w-7 text-[#007ea7] flex-shrink-0" />
             <div>
               <h3 className="font-bold text-lg mb-1">
-                Surface-level se aage jaana chahte ho
+                Surface Level Se Aage Jaana Chahte Ho
               </h3>
               <p className="text-sm text-[#00171f]/80">
                 Aap sirf definitions nahi, balki concepts ke peeche ka logic samajhna chahte ho.
@@ -45,10 +45,10 @@ export const WorkshopLearningSection = () => {
             <AlignLeft className="h-7 w-7 text-[#007ea7] flex-shrink-0" />
             <div>
               <h3 className="font-bold text-lg mb-1">
-                Structured explanation prefer karte ho
+                Structured Explanation Prefer Karte Ho
               </h3>
               <p className="text-sm text-[#00171f]/80">
-                Aapko step-by-step flow chahiye — random information nahi.
+                Aapko step-by-step flow chahiye, random information nahi.
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export const WorkshopLearningSection = () => {
             <Brain className="h-7 w-7 text-[#007ea7] flex-shrink-0" />
             <div>
               <h3 className="font-bold text-lg mb-1">
-                Calm aur practical learning chahte ho
+                Calm Aur Practical Learning Chahte Ho
               </h3>
               <p className="text-sm text-[#00171f]/80">
                 Aap learning ko pressure-free aur realistic tareeke se lena pasand karte ho.
@@ -71,7 +71,7 @@ export const WorkshopLearningSection = () => {
             <ShieldCheck className="h-7 w-7 text-[#007ea7] flex-shrink-0" />
             <div>
               <h3 className="font-bold text-lg mb-1">
-                Hype aur confusion se door rehna chahte ho
+                Hype Aur Confusion Se Door Rehna Chahte Ho
               </h3>
               <p className="text-sm text-[#00171f]/80">
                 Aapko claims, noise aur shortcuts se zyada clarity aur process chahiye.
@@ -84,7 +84,7 @@ export const WorkshopLearningSection = () => {
         <div className="mt-8 max-w-3xl mx-auto text-center">
           <p className="text-lg text-[#00171f]/80">
             Yeh session un logon ke liye hai jo
-            <span className="font-semibold"> samajh ke seekhna</span> chahte hain —  
+            <span className="font-semibold"> samajh ke seekhna</span> chahte hain,  
             na ki shortcuts, hype ya guarantees ke liye.
           </p>
         </div>

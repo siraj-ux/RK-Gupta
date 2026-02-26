@@ -32,7 +32,7 @@ export const WhatYoullLearnSection = () => {
 
           <p className="text-md text-white/85 text-left">
             Is masterclass mein topics ko <span className="font-semibold">step-by-step</span>{' '}
-            explain kiya jaayega — taaki flow samajh aaye aur clarity build ho.
+            explain kiya jaayega, taaki flow samajh aaye aur clarity build ho.
           </p>
         </div>
 
