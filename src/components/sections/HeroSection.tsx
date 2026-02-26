@@ -37,7 +37,7 @@ const MiniTimer = ({ initialSeconds = 900 }) => {
 
 export const HeroSection = () => {
   useFacebookPixel();
-  const utmParams = useUTMParams();
+  const utmParams = useUTMParams(); // This hook likely returns an object of UTMs
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [addEbook, setAddEbook] = useState(false);
 
@@ -74,6 +74,7 @@ export const HeroSection = () => {
       .catch((err) => console.error('CSV fetch error:', err));
   }, []);
 
+  // Helper to get raw URL params for the redirection
   const getParam = (key: string) =>
     new URLSearchParams(window.location.search).get(key) || '';
 
@@ -101,6 +102,7 @@ export const HeroSection = () => {
 
     setIsSubmitting(true);
 
+    // 1. Facebook Pixel Tracking
     if (window.fbq) {
       window.fbq('track', 'Lead', {
         content_name: 'Masterclass Registration',
@@ -109,6 +111,7 @@ export const HeroSection = () => {
       });
     }
 
+    // 2. Save Lead to Google Sheet (Background)
     const payload = {
       name: formData.name,
       email: formData.email,
@@ -137,19 +140,23 @@ export const HeroSection = () => {
       console.error('Lead save failed', err);
     }
 
-    const queryParams = new URLSearchParams({
-      full_name: formData.name,
+    // 3. Construct the Razorpay Payment URL with Query Params
+    // We explicitly use 'name' instead of 'full_name' to match your requirement
+    const razorpayQueryParams = new URLSearchParams({
+      name: formData.name,
       email: formData.email,
       phone: formData.phone,
       city: formData.city,
-      ...utmParams,
+      utm_source: getParam('utm_source'),
+      utm_campaign: getParam('utm_campaign'),
+      utm_term: getParam('utm_term'),
+      utm_content: getParam('utm_content'),
     }).toString();
 
-    if (addEbook) {
-      window.location.href = `${EBOOKS_RAZORPAY_URL}?${queryParams}`;
-    } else {
-      window.location.href = `${REGISTRATION_RAZORPAY_URL}?${queryParams}`;
-    }
+    const finalBaseUrl = addEbook ? EBOOKS_RAZORPAY_URL : REGISTRATION_RAZORPAY_URL;
+    
+    // 4. Redirect the user
+    window.location.href = `${finalBaseUrl}?${razorpayQueryParams}`;
   };
 
   return (
