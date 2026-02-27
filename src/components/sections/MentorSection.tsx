@@ -46,7 +46,6 @@ export const MentorSection = () => {
                   <span className="font-bold text-[#003459]"> 4,000+ professionals</span> ko in-person aur online sessions de chuka hoon.
                 </p>
                 
-                {/* UPDATED QUOTE */}
                 <p className="text-sm md:text-base italic border-l-4 border-[#00a8e8] pl-4 bg-white/50 py-2.5">
                   "Mera ek hi goal hai: jo genuinely complex lagta hai, use simple aur structured banana — bina hype, bina shortcuts."
                 </p>
@@ -63,34 +62,47 @@ export const MentorSection = () => {
           </div>
         </div>
 
-        {/* ULTRA-COMPACT AUTHOR SECTION */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        {/* AUTHOR SECTION */}
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
             
-            {/* Visual Book Gallery (Fanned Layout) */}
-            <div className="flex-shrink-0 flex -space-x-12 md:-space-x-16 py-2">
-              <img src="/new-images/6.svg" alt="Book 1" className="w-24 md:w-32 h-auto shadow-xl rounded transform -rotate-6 z-30 border border-gray-100" />
-              <img src="/new-images/5.svg" alt="Book 2" className="w-24 md:w-32 h-auto shadow-xl rounded transform rotate-3 z-20 border border-gray-100" />
-              <img src="/new-images/4.svg" alt="Book 3" className="w-24 md:w-32 h-auto shadow-xl rounded transform rotate-12 z-10 border border-gray-100" />
-            </div>
-
-            <div className="flex-1 text-center md:text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00a8e8]/10 text-[#00a8e8] text-[10px] font-bold uppercase tracking-widest mb-3">
-                <Book className="h-3 w-3" /> Published Author
+            {/* LARGE IMAGES DISPLAY */}
+            <div className="w-full lg:w-3/5 flex-shrink-0 grid grid-cols-2 gap-4 md:gap-6">
+              <div className="filter drop-shadow-2xl transition-transform hover:scale-105 duration-300">
+                <img 
+                  src="/new-images/5.svg" 
+                  alt="Financial Guide Book 1" 
+                  className="w-full h-auto rounded-2xl border border-gray-100 shadow-sm" 
+                />
               </div>
               
-              <h3 className="text-xl md:text-2xl font-bold text-[#00171f] mb-2 leading-tight">
-                National Published Author of 3 Financial Guides
+              <div className="filter drop-shadow-2xl transition-transform hover:scale-105 duration-300">
+                <img 
+                  src="/new-images/4.svg" 
+                  alt="Financial Guide Book 2" 
+                  className="w-full h-auto rounded-2xl border border-gray-100 shadow-sm" 
+                />
+              </div>
+            </div>
+
+            {/* CONTENT SIDE */}
+            <div className="w-full lg:w-2/5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a8e8]/10 text-[#00a8e8] text-xs font-bold uppercase tracking-widest mb-4">
+                <Book className="h-4 w-4" /> Published Author
+              </div>
+              
+              <h3 className="text-2xl md:text-4xl font-bold text-[#00171f] mb-4 leading-tight">
+                National Published Author of Financial Guides
               </h3>
               
-              <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-lg">
-                RK Gupta has authored multiple books, including the popular 
-                <span className="font-bold text-[#003459]"> "Risk hai to Ishq hai"</span>, dedicated to simplifying market psychology and trading for everyone.
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                RK Gupta has authored multiple influential books created specifically to 
+                <span className="font-bold text-[#003459]"> simplify market psychology </span> 
+                and trading logic for the common investor.
               </p>
 
-              <div className="mt-4 pt-4 border-t border-gray-50">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center justify-center md:justify-start gap-2">
-                  <div className="h-1 w-1 rounded-full bg-gray-300" />
+              <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-center lg:justify-start">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
                   Verified National Publications
                 </span>
               </div>
