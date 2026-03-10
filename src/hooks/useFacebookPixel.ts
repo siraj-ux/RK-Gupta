@@ -1,12 +1,12 @@
 // src/hooks/useFacebookPixel.ts
 import { useEffect } from "react";
 
-const PIXEL_ID = "807330001651355";
+const PIXEL_IDS = ["807330001651355", "601097181015212"];
 
 interface PixelOptions {
   eventName?: string;
   eventParams?: Record<string, any>;
-  eventID?: string; // Added for deduplication/CAPI
+  eventID?: string; // For deduplication/CAPI
 }
 
 export function useFacebookPixel({ eventName, eventParams, eventID }: PixelOptions = {}) {
@@ -28,23 +28,25 @@ export function useFacebookPixel({ eventName, eventParams, eventID }: PixelOptio
         t.src = v;
         s = b.getElementsByTagName(e)[0];
         s.parentNode!.insertBefore(t, s);
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js", null, null, null);
-
-      window.fbq!("init", PIXEL_ID);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      
+      // Initialize ALL pixels in the array
+      PIXEL_IDS.forEach((id) => {
+        window.fbq!("init", id);
+      });
     }
 
-    // 2. Track PageView (Standard)
+    // 2. Track PageView for all pixels
     window.fbq!("track", "PageView");
 
-    // 3. Track Custom Event (Purchase/Lead/etc)
+    // 3. Track Custom Event (Purchase/Lead/etc) for all pixels
     if (eventName) {
       if (eventID) {
-        // If eventID is provided, pass it as the 4th argument
+        // If eventID is provided, pass it as the 4th argument (crucial for CAPI)
         window.fbq!("track", eventName, eventParams || {}, { eventID });
       } else {
         window.fbq!("track", eventName, eventParams || {});
       }
     }
   }, [eventName, JSON.stringify(eventParams), eventID]); 
-  // We stringify eventParams so the effect doesn't re-run unless the data actually changes
 }
