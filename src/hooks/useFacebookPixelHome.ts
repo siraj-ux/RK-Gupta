@@ -1,7 +1,7 @@
 // src/hooks/useFacebookPixel.ts
 import { useEffect } from "react";
 
-const PIXEL_IDS = ["807330001651355", "601097181015212"];
+const PIXEL_IDS = ["807330001651355", "1601097181015212"];
 
 export function useFacebookPixel() {
   useEffect(() => {
